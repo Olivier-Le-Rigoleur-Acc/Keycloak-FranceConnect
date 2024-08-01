@@ -87,7 +87,7 @@ final class FranceConnectIdentityProvider
       AccessTokenResponse tokenResponse, String accessToken, JsonWebToken idToken)
       throws IOException {
     var id = idToken.getSubject();
-    var identity = new BrokeredIdentityContext(id);
+    var identity = new BrokeredIdentityContext(id, config);
 
     var name = (String) idToken.getOtherClaims().get(IDToken.NAME);
     var givenName = (String) idToken.getOtherClaims().get(IDToken.GIVEN_NAME);
